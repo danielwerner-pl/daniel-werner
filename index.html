@@ -1,0 +1,449 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Daniel Werner · marketing B2B i MarTech</title>
+<meta name="description" content="Interaktywne CV Daniela Wernera: marketing B2B, lead generation, marketing automation, MarTech i e-commerce. Ta strona to kampania, a Ty jesteś leadem.">
+<meta property="og:title" content="Daniel Werner · Ta strona to kampania. Ty jesteś leadem.">
+<meta property="og:description" content="Interaktywne CV: marketing B2B, lead generation, MarTech, e-commerce.">
+<meta property="og:image" content="photo.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0d1210; --bg2:#141b18; --card:#18211d; --line:#26332d;
+  --ink:#e9f0ec; --mute:#93a39b; --acc:#c6f36b; --acc2:#5fd3a6; --warn:#ff8a5c;
+  --sans:"Space Grotesk",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.55 var(--sans);overflow-x:hidden}
+a{color:var(--acc)}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px 0 120px}
+section{min-height:70vh;padding:96px 0 48px;border-bottom:1px solid var(--line)}
+.kicker{font:600 12px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--acc2);margin:0 0 18px}
+h1{font-size:clamp(40px,7vw,88px);line-height:.98;margin:0 0 24px;letter-spacing:-.02em}
+h2{font-size:clamp(30px,4.4vw,52px);line-height:1.05;margin:0 0 16px;letter-spacing:-.015em}
+h1 em,h2 em{font-style:normal;color:var(--acc)}
+.lead{font-size:clamp(18px,2vw,22px);color:var(--mute);max-width:720px}
+.btn{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--acc);background:var(--acc);color:#10160f;
+  font:600 15px var(--sans);padding:12px 20px;border-radius:999px;cursor:pointer;text-decoration:none}
+.btn.ghost{background:transparent;color:var(--acc)}
+.btn:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(--acc2);outline-offset:3px}
+
+/* lejek */
+#funnel{position:fixed;left:20px;top:50%;transform:translateY(-50%);z-index:20;display:flex;flex-direction:column;gap:6px}
+#funnel a{display:block;width:76px;padding:8px 6px;text-align:center;font:600 10px/1.2 var(--mono);text-transform:uppercase;letter-spacing:.06em;
+  color:var(--mute);text-decoration:none;border:1px solid var(--line);background:var(--bg2);transition:.3s}
+#funnel a:nth-child(1){clip-path:polygon(0 0,100% 0,94% 100%,6% 100%)}
+#funnel a:nth-child(2){clip-path:polygon(6% 0,94% 0,88% 100%,12% 100%)}
+#funnel a:nth-child(3){clip-path:polygon(12% 0,88% 0,82% 100%,18% 100%)}
+#funnel a:nth-child(4){clip-path:polygon(18% 0,82% 0,76% 100%,24% 100%)}
+#funnel a.on{background:var(--acc);color:#10160f;border-color:var(--acc)}
+#funnel a.here{box-shadow:0 0 0 2px var(--acc2) inset}
+
+/* konsola */
+#console{position:fixed;right:16px;bottom:16px;width:340px;max-height:46vh;z-index:30;background:#070a09ee;border:1px solid var(--line);
+  border-radius:12px;font:12px/1.5 var(--mono);display:flex;flex-direction:column;backdrop-filter:blur(6px)}
+#console header{display:flex;justify-content:space-between;align-items:center;padding:10px 12px;border-bottom:1px solid var(--line);cursor:pointer;user-select:none}
+#console header b{color:var(--acc2);font-weight:600}
+.dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--warn);margin-right:6px;animation:blink 1.4s infinite}
+@keyframes blink{50%{opacity:.25}}
+#score{padding:10px 12px;border-bottom:1px solid var(--line)}
+#score .bar{height:6px;background:var(--line);border-radius:3px;overflow:hidden;margin-top:6px}
+#score .bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--acc2),var(--acc));transition:width .5s}
+#score small{color:var(--mute)}
+#log{overflow:auto;padding:8px 12px;margin:0;list-style:none;flex:1}
+#log li{padding:3px 0;border-bottom:1px dashed #1c2622;animation:in .35s}
+#log .ev{color:var(--acc)} #log .p{color:var(--mute)}
+@keyframes in{from{opacity:0;transform:translateX(8px)}}
+#console footer{padding:8px 12px;color:var(--mute);border-top:1px solid var(--line);font-size:11px}
+#console.min #log,#console.min footer{display:none}
+
+/* hero */
+#hero{display:grid;grid-template-columns:1fr 240px;gap:40px;align-items:center;min-height:92vh}
+#hero img{width:240px;height:240px;object-fit:cover;filter:grayscale(1) contrast(1.05);border-radius:4px;border:1px solid var(--line)}
+.abm{display:none;font:600 13px var(--mono);color:#10160f;background:var(--acc2);padding:6px 10px;border-radius:4px;margin-bottom:18px}
+.abm.show{display:inline-block}
+.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+
+/* KPI */
+.kpis{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:14px;margin-top:32px}
+.kpi{perspective:900px;height:200px;cursor:pointer;background:none;border:0;padding:0;color:inherit;text-align:left;font:inherit}
+.kpi .in{position:relative;width:100%;height:100%;transition:transform .6s;transform-style:preserve-3d}
+.kpi.flip .in{transform:rotateY(180deg)}
+.kpi .f,.kpi .b{position:absolute;inset:0;backface-visibility:hidden;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:18px;display:flex;flex-direction:column}
+.kpi .b{transform:rotateY(180deg);background:#1d2a24;font-size:14px;color:var(--ink)}
+.kpi .num{font:700 40px/1 var(--sans);color:var(--acc);letter-spacing:-.02em}
+.kpi .from{font:12px var(--mono);color:var(--mute);margin-bottom:6px}
+.kpi .lbl{margin-top:auto;font-size:15px}
+.kpi .src{margin-top:auto;font:11px var(--mono);color:var(--acc2)}
+.hint{font:12px var(--mono);color:var(--mute);margin-top:12px}
+
+/* kanały */
+.mix{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:28px;position:relative;min-height:420px}
+.ch{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px;transition:transform .7s cubic-bezier(.2,.8,.2,1),background .5s,border-color .5s}
+.ch .tag{font:600 11px var(--mono);text-transform:uppercase;letter-spacing:.1em;color:var(--mute);display:flex;justify-content:space-between}
+.ch .msg{margin:10px 0 0;font-size:18px;line-height:1.3;transition:.4s}
+.ch .role{font:12px var(--mono);color:var(--mute);margin-top:10px;opacity:0;transition:.4s}
+.mix.chaos .ch:nth-child(1){transform:rotate(-4deg) translate(-8px,14px);background:#2a1f33;font-family:Georgia,serif}
+.mix.chaos .ch:nth-child(2){transform:rotate(3deg) translate(10px,-6px);background:#33281a}
+.mix.chaos .ch:nth-child(3){transform:rotate(-2deg) translate(4px,10px);background:#1a2833;text-transform:uppercase}
+.mix.chaos .ch:nth-child(4){transform:rotate(5deg) translate(-6px,-12px);background:#331a1f;font-style:italic}
+.mix.order .ch{border-color:var(--acc2)}
+.mix.order .ch .role{opacity:1}
+.mix.order .ch .msg b{color:var(--acc)}
+.controls{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin-top:24px}
+.controls input{flex:1;min-width:220px;background:var(--bg2);border:1px solid var(--line);color:var(--ink);font:16px var(--sans);padding:12px 14px;border-radius:8px}
+.note{border-left:3px solid var(--acc);padding:4px 0 4px 16px;margin-top:28px;color:var(--mute);max-width:760px}
+
+/* kariera */
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin:24px 0}
+.chip{background:var(--bg2);border:1px solid var(--line);color:var(--ink);font:500 14px var(--sans);padding:7px 14px;border-radius:999px;cursor:pointer}
+.chip.on{background:var(--acc);color:#10160f;border-color:var(--acc)}
+.tl{list-style:none;margin:0;padding:0;border-left:2px solid var(--line)}
+.job{position:relative;padding:0 0 22px 26px;transition:opacity .35s}
+.job::before{content:"";position:absolute;left:-7px;top:8px;width:12px;height:12px;border-radius:50%;background:var(--bg);border:2px solid var(--acc2)}
+.job.dim{opacity:.22}
+.job button.h{all:unset;cursor:pointer;display:block;width:100%}
+.job .d{font:12px var(--mono);color:var(--mute)}
+.job h3{margin:2px 0 0;font-size:21px}
+.job .c{color:var(--mute);font-size:15px}
+.job .body{display:none;margin-top:10px}
+.job.open .body{display:block}
+.job ul{margin:6px 0 0;padding-left:18px}
+.job li{margin:4px 0}
+.group{border:1px dashed var(--acc2);border-radius:10px;padding:14px 16px;margin-top:10px}
+.group .r{padding:8px 0;border-bottom:1px solid var(--line)}
+.group .r:last-child{border:0}
+.group .r b{color:var(--acc)}
+.up{font:11px var(--mono);color:var(--acc2)}
+
+/* stack */
+.stack{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px;margin-top:28px}
+.tagbox{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px}
+.tagbox h3{margin:0 0 10px;font:600 12px var(--mono);text-transform:uppercase;letter-spacing:.1em;color:var(--acc2)}
+.tagbox span{display:inline-block;font:13px var(--mono);border:1px solid var(--line);border-radius:4px;padding:3px 7px;margin:0 6px 6px 0}
+.tagbox span::before{content:"✓ ";color:var(--acc)}
+.pubs{margin-top:28px;padding-left:18px;color:var(--mute)}
+.pubs a{color:var(--ink)}
+
+/* decyzja */
+#decyzja{min-height:80vh;display:flex;flex-direction:column;justify-content:center}
+#thanks{display:none;margin-top:24px;font:14px var(--mono);color:var(--acc)}
+footer.foot{padding:32px 0 120px;color:var(--mute);font-size:13px}
+
+/* tryb ATS */
+#atsBtn{position:fixed;top:14px;right:16px;z-index:40;background:var(--bg2);color:var(--ink);border:1px solid var(--line);font:600 12px var(--mono);padding:8px 12px;border-radius:6px;cursor:pointer}
+#ats{display:none;white-space:pre-wrap;font:14px/1.6 var(--mono);color:#111;background:#fff;padding:60px 24px;max-width:860px;margin:0 auto}
+body.ats{background:#fff}
+body.ats #ats{display:block}
+body.ats main,body.ats #funnel,body.ats #console{display:none}
+body.ats #atsBtn{background:#111;color:#fff}
+
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s,transform .7s}
+.reveal.vis{opacity:1;transform:none}
+
+@media (max-width:860px){
+  .wrap{padding:0 16px}
+  #funnel{left:0;right:0;top:0;transform:none;flex-direction:row;gap:0;background:var(--bg);padding:6px 16px;border-bottom:1px solid var(--line)}
+  #funnel a{flex:1;width:auto;clip-path:none!important;font-size:9px;padding:6px 2px}
+  #atsBtn{top:54px;right:12px;font-size:11px;padding:6px 9px}
+  .kpi{height:150px}
+  section{padding-top:72px}
+  #hero{grid-template-columns:1fr;min-height:auto;padding-top:90px}
+  #hero img{width:140px;height:140px;order:-1}
+  .mix{grid-template-columns:1fr}
+  #console{width:auto;left:auto;right:12px;bottom:12px;max-width:calc(100% - 24px)}
+  #console:not(.open) #log,#console:not(.open) footer{display:none}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+  .reveal{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+
+<nav id="funnel" aria-label="Etapy lejka">
+  <a href="#hero" data-s="hero">Świado&shy;mość</a>
+  <a href="#wyniki" data-s="wyniki">Zainte&shy;resowanie</a>
+  <a href="#kanaly" data-s="kanaly">Rozwa&shy;żanie</a>
+  <a href="#decyzja" data-s="decyzja">Decyzja</a>
+</nav>
+
+<button id="atsBtn" aria-pressed="false">🤖 Jestem botem ATS</button>
+
+<aside id="console" aria-label="Podgląd śledzenia zdarzeń">
+  <header id="conHead" title="Zwiń / rozwiń">
+    <span><span class="dot"></span><b>DebugView</b> · Ty</span><span id="evCount">0 zdarzeń</span>
+  </header>
+  <div id="score">
+    <small>Lead score: <b id="scoreVal">0</b>/100 · <span id="stage">Anonimowy odwiedzający</span></small>
+    <div class="bar"><i id="scoreBar"></i></div>
+  </div>
+  <ul id="log" aria-live="off"></ul>
+  <footer>Nic nie wysyłam. Te zdarzenia widzisz tylko Ty, w swojej przeglądarce.</footer>
+</aside>
+
+<main>
+<div class="wrap">
+
+<section id="hero">
+  <div>
+    <span class="abm" id="abm"></span>
+    <p class="kicker">Daniel Werner · marketing B2B · MarTech · e-commerce</p>
+    <h1 id="h1">Ta strona to kampania.<br><em>Ty jesteś leadem.</em></h1>
+    <p class="lead" id="heroLead">Od ponad 10 lat buduję lejki, które zamieniają ruch w leady, a leady w sprzedaż. Tutaj możesz to sprawdzić na sobie: w rogu widzisz, co mierzę, kiedy przewijasz i klikasz.</p>
+    <div class="actions">
+      <a class="btn" href="#wyniki" data-ev="select_content" data-p="cta_hero">Pokaż wyniki ↓</a>
+      <a class="btn ghost" href="#decyzja" data-ev="select_content" data-p="skip_to_contact">Od razu do kontaktu</a>
+    </div>
+  </div>
+  <img src="photo.jpg" alt="Daniel Werner" width="240" height="240">
+</section>
+
+<section id="wyniki" class="reveal">
+  <p class="kicker">Etap 2 · Zainteresowanie</p>
+  <h2>Liczby, które <em>naprawdę</em> się zdarzyły</h2>
+  <p class="lead">Każdą kartę możesz odwrócić. Z tyłu jest kontekst: gdzie i jak.</p>
+  <div class="kpis" id="kpis"></div>
+  <p class="hint">Każde odwrócenie karty to zdarzenie <code>view_item</code>. Spójrz w rogu ekranu.</p>
+</section>
+
+<section id="kanaly" class="reveal">
+  <p class="kicker">Etap 3 · Rozważanie</p>
+  <h2>Jeden komunikat.<br><em>Cztery kanały.</em></h2>
+  <p class="lead">Kiedy social media, strona, reklamy i mailing mówią każdy co innego, klient się gubi, a budżet się rozjeżdża. Wpisz swój główny komunikat i uporządkuj kanały jednym kliknięciem.</p>
+  <div class="controls">
+    <input id="msgIn" maxlength="70" value="Mniej pracy, więcej sprzedaży" aria-label="Główny komunikat marki">
+    <button class="btn" id="orderBtn">Uporządkuj</button>
+  </div>
+  <div class="mix chaos" id="mix">
+    <div class="ch"><div class="tag"><span>Social media</span><span>👀</span></div><p class="msg"></p><p class="role"></p></div>
+    <div class="ch"><div class="tag"><span>Strona www</span><span>🌐</span></div><p class="msg"></p><p class="role"></p></div>
+    <div class="ch"><div class="tag"><span>Reklamy</span><span>🎯</span></div><p class="msg"></p><p class="role"></p></div>
+    <div class="ch"><div class="tag"><span>Mailing</span><span>✉️</span></div><p class="msg"></p><p class="role"></p></div>
+  </div>
+  <p class="note">Tak pracowałem w Rotenso: osobne serwisy dla klientów indywidualnych, instalatorów i firm, każdy z jasną rolą. Jedną kampanię „klimatyzacja to standard” poprowadziłem od internetu po radio, outdoor i kino. Rozpoznawalność marki wzrosła w rok z ok. 6% do ok. 9%.</p>
+</section>
+
+<section id="kariera" class="reveal">
+  <p class="kicker">Ścieżka klienta, czyli moja kariera</p>
+  <h2>20 lat: od sklepów<br>do <em>systemów</em></h2>
+  <p class="lead">Wybierz, czego szukasz. Podświetlę pasujące etapy. Kliknij etap, żeby zobaczyć szczegóły.</p>
+  <div class="chips" id="chips"></div>
+  <ol class="tl" id="tl"></ol>
+</section>
+
+<section id="stack" class="reveal">
+  <p class="kicker">Kontener tagów</p>
+  <h2>Narzędzia, które <em>uruchamiam</em></h2>
+  <div class="stack" id="stackBox"></div>
+  <ul class="pubs" id="pubs"></ul>
+</section>
+
+<section id="decyzja" class="reveal">
+  <p class="kicker">Etap 4 · Decyzja</p>
+  <h2 id="ctaH">Ten lejek kończy się<br><em>rozmową</em>.</h2>
+  <p class="lead" id="ctaLead">Skoro tu jesteś, w moim raporcie to już gorący lead. Napisz, a odpowiem w ciągu 30 minut, bo tyle czekał lead na handlowca, kiedy zautomatyzowałem obsługę zapytań w Rotenso.</p>
+  <div class="actions">
+    <a class="btn" id="mailBtn" href="mailto:danielwerner.pl@gmail.com" data-ev="generate_lead" data-p="email">✉️ Napisz do mnie</a>
+    <a class="btn ghost" href="https://www.linkedin.com/in/daniel-werner-martech" target="_blank" rel="noopener" data-ev="generate_lead" data-p="linkedin">LinkedIn ↗</a>
+  </div>
+  <p id="thanks">✓ Konwersja zapisana. Dziękuję. Twój lead trafia do działu sprzedaży, czyli do mnie.</p>
+</section>
+
+<footer class="foot">Daniel Werner · Śląsk · danielwerner.pl@gmail.com · Strona bez ciasteczek i bez analityki: „śledzenie” dzieje się tylko w Twojej przeglądarce i znika po zamknięciu karty.</footer>
+</div>
+</main>
+
+<pre id="ats" aria-label="Wersja tekstowa CV"></pre>
+
+<script>
+/* ===== Dane: tylko fakty z CV ===== */
+const KPI=[
+  {from:"30 → 160",num:"×5,3",lbl:"leadów enterprise miesięcznie",back:"SAREsystem (SaaS do e-mail marketingu, Digitree Group). Odpowiadałem za strategię, analizę rynku i pozyskiwanie leadów.",src:"SAREsystem · 2019–2020",item:"sare_leads"},
+  {from:"r/r",num:"+400%",lbl:"sprzedaży online, 12 mln zł w półrocze",back:"INNPRO, oficjalny importer DJI i Dreame. Promocje, analityka e-commerce, UX sklepu na IdoSell, SALESmanago.",src:"INNPRO · 2024",item:"innpro_sales"},
+  {from:"2 dni → 30 min",num:"30 min",lbl:"czas reakcji sprzedaży na lead",back:"Rotenso. Zautomatyzowałem obsługę leadów B2B i B2C (CRM, ERP InsERT Navireo, agenci AI) i wprowadziłem raport, jak sprzedaż je obsługuje.",src:"Rotenso · od 2024",item:"rotenso_speed"},
+  {from:"co tydzień",num:"55",lbl:"nowych sklepów na platformie",back:"Nokaut.pl. Strategia marketingu i PR, leady w HubSpot, kampanie płatne. Konwersja strony wzrosła o 128%, wprowadziłem Nokaut 2.0.",src:"Nokaut.pl · 2022–2023",item:"nokaut_shops"},
+  {from:"6% → 9%",num:"+3 pp",lbl:"rozpoznawalności marki w rok",back:"Rotenso. Wymyśliłem kampanię „klimatyzacja to standard”: online od 04.2025, w 2026 r. radio, outdoor i kina (budżet ok. 2 mln zł). Badania zewnętrzne.",src:"Rotenso · 2025–2026",item:"rotenso_awareness"},
+  {from:"6 spółek",num:"1 lejek",lbl:"pozyskiwania leadów dla całej grupy",back:"Digitree Group (spółka matka). Prowadziłem kampanie od planu mediowego do realizacji KPI.",src:"Digitree Group · 2021–2022",item:"digitree_funnel"},
+  {from:"−6% → +1%",num:"r/r",lbl:"sprzedaży po zmianie strategii reklam",back:"Zielony Parapet. Wzrosła wartość koszyka i LTV klienta. Kierowałem 8-osobowym zespołem, przebudowałem ofertę na Allegro pod kątem marży.",src:"Zielony Parapet · 2023",item:"zp_sales"},
+  {from:"w 3 miesiące",num:"150 000",lbl:"zarejestrowanych użytkowników",back:"Zrabatowani.pl, portal cashbackowy. Stworzyłem go jako Product Owner, a potem jako CEO spółki Cashback Services odpowiadałem za rozwój, zespół i finanse.",src:"Zrabatowani.pl · 2019",item:"zrabatowani_users"}
+];
+const TAGS={lead:"Lead generation",ecom:"E-commerce",martech:"MarTech i dane",brand:"Marka i komunikacja",team:"Zarządzanie",sales:"Sprzedaż"};
+const JOBS=[
+  {d:"12.2024 – obecnie",t:"Kierownik Marketingu Digital & Trade",c:"Rotenso (THERMOSILESIA) · HVAC",tags:["lead","brand","martech","team"],b:[
+    "Kierowałem 6-osobowym zespołem marketingu digital i trade oraz budżetem: leady, wsparcie sprzedaży B2B, POS, targi.",
+    "Uporządkowałem komunikację: rotenso.com dla klientów indywidualnych, thermosilesia.pl dla instalatorów, professional.rotenso.com dla B2B.",
+    "Wprowadziłem pozyskiwanie leadów B2C, choć wcześniej firma mówiła tylko do B2B.",
+    "Automatyzacja leadów (CRM, ERP, agenci AI): reakcja sprzedaży z 2 dni do 30 minut.",
+    "Kampania „klimatyzacja to standard” od online po radio, outdoor i kino. Rozpoznawalność z ok. 6% do ok. 9%."]},
+  {d:"01.2024 – 11.2024",t:"E-commerce Leader",c:"INNPRO · importer DJI i Dreame",tags:["ecom","martech"],b:["Sprzedaż online +400% r/r, 12 mln zł w pierwszym półroczu. Promocje, analityka, UX sklepu (IdoSell), SALESmanago."]},
+  {d:"01.2021 – obecnie",t:"MarTech Manager",c:"Empower Media",tags:["martech","ecom"],b:["Wdrażam narzędzia analityczne i sprzedażowe, buduję strony, projektuję ścieżki marketing automation."]},
+  {d:"06.2023 – 10.2023",t:"Dyrektor E-commerce",c:"Zielony Parapet",tags:["ecom","team"],b:["Sprzedaż z −6% r/r do +1% r/r po zmianie strategii reklam płatnych, wyższy koszyk i LTV.","8-osobowy zespół, Allegro pod kątem marżowości, PrestaShop + Baselinker, enova365."]},
+  {d:"07.2015 – 05.2023",t:"8 lat w Digitree Group (wcześniej SARE S.A.)",c:"Awansowałem w kolejnych spółkach grupy razem ze zmianami jej struktury.",tags:["lead","martech","brand","team"],group:[
+    ["Salelifter","Product Owner","07.2015 – 01.2019","Stworzyłem i uruchomiłem portal cashbackowy Zrabatowani.pl."],
+    ["Cashback Services · Zrabatowani.pl","CEO","02.2019 – 11.2020","150 000 użytkowników w 3 miesiące. Rozwój, zespół, finanse i wyniki spółki."],
+    ["SAREsystem","Head of PR & Marketing","11.2019 – 12.2020","Leady enterprise z 30 do 160 miesięcznie. SaaS B2B, analiza rynku, szkolenia produktowe."],
+    ["Digitree Group S.A.","Performance & MarTech Manager","01.2021 – 03.2022","Lejek pozyskiwania leadów dla 6 spółek grupy."],
+    ["Nokaut.pl","Head of PR & Marketing","04.2022 – 05.2023","Średnio 55 nowych sklepów tygodniowo, konwersja strony +128%, Nokaut 2.0, HubSpot."]]},
+  {d:"05.2009 – 07.2015",t:"Partner ds. Sprzedaży",c:"Żabka Polska · Śląsk",tags:["sales","team"],b:["Rejon 50–150 sklepów: sprzedaż, ekspozycja, zamówienia, współpraca z Ajentami, szkolenia z obsługi klienta."]},
+  {d:"07.2006 – 05.2009",t:"Przedstawiciel ds. Kluczowych Klientów",c:"POSTI S.A. · Śląsk",tags:["sales"],b:["Sprzedaż z 350 000 do 800 000 zł miesięcznie w kanale nowoczesnym."]}
+];
+const STACK={
+  "Lead gen i automation":["HubSpot","SALESmanago","marketing automation","e-mail marketing","lejki sprzedażowe","agenci AI"],
+  "Analityka":["GA4","Google Tag Manager","Looker Studio","Google 360","dashboardy"],
+  "Sprzedaż i systemy":["CRM","InsERT Navireo","enova365","PIM","PrestaShop","IdoSell","Baselinker","Allegro"],
+  "Warsztat":["HTML","CSS","JavaScript (podstawy)","WordPress","Figma","InDesign","Jira"]
+};
+const PUBS=[
+  ["MIT Sloan Management Review Polska","Mierz to, czym zarządzasz. Zadbaj o analitykę przy wdrażaniu automatyzacji komunikacji","https://mitsmr.pl/b/mierz-to-czym-zarzadzasz-zadbaj-o-analityke-przy-wdrazaniu-automatyzacji-komunikacji/P1EgRIYk1"],
+  ["Marketer+","5 pomysłów na scenariusze automatyzacji dla branży fashion","https://marketerplus.pl/5-pomyslow-na-scenariusze-automatyzacji-dla-branzy-fashion-ktore-pomoga-ci-podbic-swiat-mody-w-internecie/"],
+  ["Tygrysy Biznesu","Obniż koszty marketingowe dzięki marketing automation","https://tygrysybiznesu.com.pl/obniz-koszty-marketingowe-dzieki-marketing-automation/"],
+  ["CEO – biznes w praktyce","Cashback na polskim rynku e-commerce","https://ceo.com.pl/cashback-na-polskim-rynku-e-commerce-74369"]
+];
+
+/* ===== Śledzenie (lokalne) ===== */
+const $=s=>document.querySelector(s);
+let score=0,evs=0;const seen=new Set();
+function stageName(s){return s>=100?"SQL · przekaż do sprzedaży":s>=60?"MQL · gotowy na kontakt":s>=25?"Zaangażowany":"Anonimowy odwiedzający"}
+function track(ev,params={},pts=0){
+  evs++;$("#evCount").textContent=evs+" zdarzeń";
+  const li=document.createElement("li");
+  const t=new Date().toLocaleTimeString("pl-PL",{hour:"2-digit",minute:"2-digit",second:"2-digit"});
+  const p=Object.entries(params).map(([k,v])=>k+": "+v).join(", ");
+  li.innerHTML='<span class="p">'+t+'</span> <span class="ev"></span> <span class="p"></span>';
+  li.children[1].textContent=ev;li.children[2].textContent=p?"{"+p+"}":"";
+  const log=$("#log");log.prepend(li);while(log.children.length>40)log.lastChild.remove();
+  if(pts){const before=stageName(score);score=Math.min(100,score+pts);
+    $("#scoreVal").textContent=score;$("#scoreBar").style.width=score+"%";
+    const after=stageName(score);$("#stage").textContent=after;
+    if(after!==before)setTimeout(()=>track("lead_stage_change",{stage:after.split(" ·")[0]}),250);}
+}
+function once(key,fn){if(!seen.has(key)){seen.add(key);fn()}}
+
+/* ===== ABM: ?dla=Firma ===== */
+const qs=new URLSearchParams(location.search);
+const firma=(qs.get("dla")||qs.get("utm_campaign")||"").replace(/[<>]/g,"").slice(0,40).trim();
+if(firma){
+  const a=$("#abm");a.textContent="Wersja przygotowana dla: "+firma;a.classList.add("show");
+  $("#h1").innerHTML="Cześć, <span id=fn></span>.<br><em>Wy jesteście moim leadem.</em>";$("#fn").textContent=firma;
+  $("#ctaH").innerHTML="Kolejny krok:<br><em>rozmowa</em>.";
+  $("#mailBtn").href="mailto:danielwerner.pl@gmail.com?subject="+encodeURIComponent("Rozmowa: "+firma+" × Daniel Werner");
+  document.title="Daniel Werner × "+firma;
+}
+track("page_view",Object.assign({page:"/cv"},firma?{utm_campaign:firma}:{},qs.get("utm_source")?{utm_source:qs.get("utm_source").slice(0,30)}:{}),2);
+track("session_start",{device:innerWidth<860?"mobile":"desktop"});
+
+/* ===== KPI ===== */
+const kbox=$("#kpis");
+KPI.forEach(k=>{
+  const b=document.createElement("button");b.className="kpi";b.setAttribute("aria-label",k.num+" "+k.lbl+". Kliknij, żeby zobaczyć kontekst.");
+  b.innerHTML='<div class="in"><div class="f"><div class="from"></div><div class="num"></div><div class="lbl"></div></div><div class="b"><div class="t"></div><div class="src"></div></div></div>';
+  b.querySelector(".from").textContent=k.from;b.querySelector(".num").textContent=k.num;b.querySelector(".lbl").textContent=k.lbl;
+  b.querySelector(".t").textContent=k.back;b.querySelector(".src").textContent=k.src;
+  b.onclick=()=>{b.classList.toggle("flip");if(b.classList.contains("flip"))track("view_item",{item_id:k.item},seen.has(k.item)?0:6),seen.add(k.item)};
+  kbox.appendChild(b);
+});
+
+/* ===== Kanały ===== */
+const CH=[
+  {chaos:"Hej! 🔥 Sprawdź, co u nas nowego!!! #promo #nowość",role:"Rola: zasięg i rozpoznawalność",fmt:m=>"<b>"+m+"</b>. Zobacz, jak to działa u naszych klientów →"},
+  {chaos:"Kompleksowe rozwiązania dla nowoczesnego biznesu, synergia i innowacja",role:"Rola: rozwinięcie i dowody",fmt:m=>"<b>"+m+"</b>. Przykłady wdrożeń, cennik i porównanie wariantów."},
+  {chaos:"PROMOCJA −50% TYLKO DZIŚ KLIKNIJ",role:"Rola: konwersja, mierzona w GA4",fmt:m=>"<b>"+m.slice(0,30)+"</b> | Zacznij dziś"},
+  {chaos:"Newsletter nr 47: kilka słów od zarządu o wartościach firmy",role:"Rola: dosprzedaż obecnym klientom",fmt:m=>"Temat: <b>"+m+"</b>. Co jeszcze możesz mieć w swoim pakiecie?"}
+];
+const mix=$("#mix"),chs=[...mix.children];
+function esc(s){return s.replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]))}
+function renderMix(){
+  const ordered=mix.classList.contains("order"),m=esc($("#msgIn").value.trim()||"Twój główny komunikat");
+  chs.forEach((el,i)=>{el.querySelector(".msg").innerHTML=ordered?CH[i].fmt(m):esc(CH[i].chaos);el.querySelector(".role").textContent=CH[i].role});
+}
+$("#orderBtn").onclick=()=>{
+  const o=mix.classList.toggle("order");mix.classList.toggle("chaos",!o);
+  $("#orderBtn").textContent=o?"Pokaż chaos":"Uporządkuj";renderMix();
+  track("select_content",{content_type:"channel_mix",state:o?"spójny":"chaos"},o&&!seen.has("mix")?15:0);seen.add("mix");
+};
+let typT;$("#msgIn").oninput=()=>{renderMix();clearTimeout(typT);typT=setTimeout(()=>once("typed",()=>track("form_start",{field:"core_message"},8)),600)};
+renderMix();
+
+/* ===== Kariera ===== */
+const chipBox=$("#chips");let active=null;
+Object.entries(TAGS).forEach(([k,v])=>{
+  const c=document.createElement("button");c.className="chip";c.textContent=v;c.setAttribute("aria-pressed","false");
+  c.onclick=()=>{active=active===k?null:k;[...chipBox.children].forEach(x=>{x.classList.toggle("on",x===c&&active);x.setAttribute("aria-pressed",x===c&&!!active)});
+    document.querySelectorAll(".job").forEach(j=>j.classList.toggle("dim",!!active&&!j.dataset.tags.split(",").includes(active)));
+    if(active)track("search",{search_term:v},seen.has("chip_"+k)?0:4),seen.add("chip_"+k)};
+  chipBox.appendChild(c);
+});
+const tl=$("#tl");
+JOBS.forEach((j,i)=>{
+  const li=document.createElement("li");li.className="job"+(i===0?" open":"");li.dataset.tags=j.tags.join(",");
+  li.innerHTML='<button class="h" aria-expanded="'+(i===0)+'"><div class="d"></div><h3></h3><div class="c"></div></button><div class="body"></div>';
+  li.querySelector(".d").textContent=j.d;li.querySelector("h3").textContent=j.t;li.querySelector(".c").textContent=j.c;
+  const body=li.querySelector(".body");
+  if(j.group){const g=document.createElement("div");g.className="group";
+    j.group.forEach(([co,ro,dt,tx],n)=>{const r=document.createElement("div");r.className="r";
+      r.innerHTML='<div class="up"></div><b></b> · <span></span><div></div>';
+      r.children[0].textContent=dt+(n?"  ↑ kolejny krok":"  start w grupie");r.children[1].textContent=ro;r.children[2].textContent=co;r.children[3].textContent=tx;g.appendChild(r)});
+    body.appendChild(g);}
+  else{const ul=document.createElement("ul");j.b.forEach(t=>{const x=document.createElement("li");x.textContent=t;ul.appendChild(x)});body.appendChild(ul)}
+  const h=li.querySelector(".h");
+  h.onclick=()=>{const o=li.classList.toggle("open");h.setAttribute("aria-expanded",o);if(o)track("view_item",{item_id:j.c.split(" ·")[0].slice(0,28)},seen.has("job"+i)?0:3),seen.add("job"+i)};
+  tl.appendChild(li);
+});
+
+/* ===== Stack i publikacje ===== */
+Object.entries(STACK).forEach(([k,v])=>{const d=document.createElement("div");d.className="tagbox";
+  d.innerHTML="<h3></h3>";d.firstChild.textContent=k;v.forEach(t=>{const s=document.createElement("span");s.textContent=t;d.appendChild(s)});$("#stackBox").appendChild(d)});
+PUBS.forEach(([o,t,u])=>{const li=document.createElement("li");li.innerHTML='<span></span>: <a target="_blank" rel="noopener"></a>';
+  li.firstChild.textContent=o;li.lastChild.textContent=t;li.lastChild.href=u;li.lastChild.dataset.ev="select_content";li.lastChild.dataset.p="publication";$("#pubs").appendChild(li)});
+
+/* ===== Kliknięcia z data-ev ===== */
+document.addEventListener("click",e=>{const a=e.target.closest("[data-ev]");if(!a)return;
+  const ev=a.dataset.ev;
+  if(ev==="generate_lead"){track("generate_lead",{method:a.dataset.p,value:"bezcenny"},100);$("#thanks").style.display="block";}
+  else track(ev,{content:a.dataset.p},2);
+});
+
+/* ===== Sekcje, lejek, scroll, czas ===== */
+const order=["hero","wyniki","kanaly","decyzja"];
+const io=new IntersectionObserver(es=>es.forEach(en=>{
+  if(!en.isIntersecting)return;const id=en.target.id;en.target.classList.add("vis");
+  once("sec_"+id,()=>track("view_section",{section:id},5));
+  const idx=order.indexOf(id);
+  if(idx>=0)document.querySelectorAll("#funnel a").forEach((a,i)=>{a.classList.toggle("on",i<=Math.max(idx,+a.parentNode.dataset.max||0));a.classList.toggle("here",i===idx)}),
+    $("#funnel").dataset.max=Math.max(idx,+$("#funnel").dataset.max||0);
+}),{threshold:.25});
+document.querySelectorAll("section").forEach(s=>io.observe(s));
+addEventListener("scroll",()=>{const h=document.documentElement,p=Math.round(100*scrollY/(h.scrollHeight-innerHeight));
+  [25,50,75,90].forEach(m=>{if(p>=m)once("sc"+m,()=>track("scroll",{percent_scrolled:m},3))})},{passive:true});
+[30,60,120].forEach(s=>setTimeout(()=>{if(!document.body.classList.contains("ats"))track("user_engagement",{engagement_time_sec:s},4)},s*1000));
+document.addEventListener("visibilitychange",()=>{if(document.hidden)track("tab_hidden",{note:"wróć, jeszcze nie skończyłem"})});
+
+/* ===== Konsola: zwijanie ===== */
+$("#conHead").onclick=()=>{const c=$("#console");if(innerWidth<860)c.classList.toggle("open");else c.classList.toggle("min")};
+
+/* ===== Tryb ATS ===== */
+function atsText(){
+  let t="DANIEL WERNER\nMarketing B2B | lead generation | marketing automation | MarTech | e-commerce\ndanielwerner.pl@gmail.com | linkedin.com/in/daniel-werner-martech | Śląsk\n\n";
+  t+="DOŚWIADCZENIE\n";
+  JOBS.forEach(j=>{t+="\n"+j.d+"  "+j.t+"\n"+j.c+"\n";
+    if(j.group)j.group.forEach(([co,ro,dt,tx])=>t+="  "+dt+"  "+ro+", "+co+"\n    - "+tx+"\n");else j.b.forEach(b=>t+="  - "+b+"\n")});
+  t+="\nWYNIKI\n"+KPI.map(k=>"  - "+k.from+": "+k.num+" "+k.lbl+" ("+k.src+")").join("\n");
+  t+="\n\nUMIEJĘTNOŚCI\n"+Object.entries(STACK).map(([k,v])=>"  "+k+": "+v.join(", ")).join("\n");
+  t+="\n\nWYKSZTAŁCENIE\n  Zarządzanie i Marketing (mgr), Uniwersytet Śląski\n  Wycena i gospodarka nieruchomościami (podyplomowe), Uniwersytet Śląski\n";
+  t+="\nJĘZYKI\n  polski (ojczysty), angielski (B2)\n\n[Dla ludzi: kliknij przycisk w prawym górnym rogu, żeby wrócić do wersji interaktywnej.]";
+  return t;
+}
+$("#ats").textContent=atsText();
+$("#atsBtn").onclick=()=>{const on=document.body.classList.toggle("ats");$("#atsBtn").textContent=on?"👤 Jednak jestem człowiekiem":"🤖 Jestem botem ATS";
+  $("#atsBtn").setAttribute("aria-pressed",on);scrollTo(0,0);if(!on)track("select_content",{content_type:"ats_mode",note:"człowiek wrócił"},10)};
+</script>
+</body>
+</html>
